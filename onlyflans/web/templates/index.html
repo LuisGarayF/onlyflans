@@ -1,5 +1,6 @@
 {%extends 'base.html'%}
 {% block 'content' %}
+{% load static %}
     <div class="container-fluid">
         <div class="row">
             <div class="col mb-4">
@@ -21,22 +22,29 @@
             </div>
         </div>
     </div>
-    <div class="container overflow-hidden">   
-            <div class="row py-2 gx-4">
-                    {% for flan in public_flans %}
-                    <div class=" col-xs-6 col-sm-4 col-md-3 text-center">              
-                        <div class="card my-3" style="width: 18rem;">
-                            <img src="{{ flan.image_url }}" class="card-img-top" alt="{{flan.name}}" style="height: 17rem;">
-                            <div class="card-body">
+    <div class="container mb-3">   
+        <div class="row">
+            {% for flan in public_flans %}
+                <div class ="col col-xl-3 col-md-4 p-2">
+                    <div class="card m-2 p-1 h-100 w-100" style="width: 14rem;">
+                        <img src="{{ flan.image_url }}" class="card-img-top-fluid h-40" alt="{{flan.name}}"style="height:220px;">
+                        <div class="card-body">
                             <h5 class="card-title fw-bold fs-3">{{flan.name}}</h5>
                             <p class="card-text">{{flan.description}}</p>
-                            </div>
+                        </div>
+                        <div class="card-body text-center">
                             <ul class="list-group list-group-flush">
-                            <li class="list-group-item fw-bold fs-4 precio">$   {{ flan.price }} </li>
+                                <hr>
+                                <li class="list-group-item fw-bold fs-4 precio">$   {{ flan.price }} </li>
                             </ul>
+                            <hr>
+                        </div>
+                        <div class="card-body text-center">
+                            <a href="#" class="btn botones m-3 text-center">Ver más</a>
                         </div>
                     </div>
-                    {% endfor %}
                 </div>
-            </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}
