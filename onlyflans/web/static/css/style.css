@@ -1,0 +1,64 @@
+
+/* Creamos variables en el entorno bootstrap*/
+:root {
+--bs-font-sans-serif: 'Arima', cursive;
+--font-sec: 'Yeseva One', cursive;
+--naranja:  #fca946;
+--violeta: #a8a7d9;
+}
+
+/*Definimos la tipografía principal*/
+* {
+    font-family: var(--bs-font-sans-serif) !important;
+  }
+
+/*Definimos la tipografía del titulo*/
+.titulo{
+    font-family: var(--font-sec) !important; 
+}
+
+/*Color barra superior*/
+.barra{
+    background-color:  var(--naranja);
+}
+
+
+.nav-link{
+    font-size: 1.25rem;
+}
+
+.nav-link:hover{
+    font-weight: 600;
+    color: var(--naranja) !important;
+}
+
+p {
+  font-size: 1.125rem;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica !important; 
+}
+
+.botones{
+    font-size: 1.25rem;
+    background-color: var(--naranja)!important;
+    color: #fff;
+    border: none !important;
+    width:200px;
+}
+
+.botones:hover{
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff !important;
+}
+
+.precio{
+    color: var(--naranja);
+}
+
+#footer {
+    bottom:0px;
+}
+
+
+
+

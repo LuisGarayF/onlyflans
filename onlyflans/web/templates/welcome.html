@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+{% block 'content' %}
+    <div class="col mb-5">
+        <div class="h-100 p-5 text-white barra text-center">
+            <h1 class="text-center titulo"> Bienvenido {{ user.get_full_name | capfirst }} </h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <p class="text-center py-3 fs-5"> Tenemos una lista de productos exclusivos para tí. ¿Quieres conocer más?</p>
+            <a href="{% url 'contacto' %}" class="btn mx-auto botones py-2" style="width:200px;"> Contáctanos </a>   
+        </div>
+        <hr>    
+        <div class="row pt-3">
+            {% for flan in private_flans %}
+            <div class="col-6 col-md-3 col-sm-6">              
+                <div class="card my-3" style="width: 18rem;">
+                    <img src="{{ flan.image_url }}" class="card-img-top" alt="{{flan.name}}" style="height: 17rem;">
+                    <div class="card-body">
+                      <h5 class="card-title fw-bold fs-3">{{flan.name}}</h5>
+                      <p class="card-text">{{flan.description}}</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item text-center fw-bold fs-5 precio">$ {{ flan.price }} </li>
+                    </ul>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>          
+{% endblock %}

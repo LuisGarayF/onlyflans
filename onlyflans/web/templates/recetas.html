@@ -1,0 +1,32 @@
+{%extends 'base.html'%}
+{% block 'content' %}
+    <div class="col mb-4">
+        <div class="h-100 p-5 text-white barra text-center">
+            <h1 class="text-center titulo barra"> Recetas </h1>
+        </div>
+    </div>
+    <div class="container">    
+        <div class="row pt-3">
+            {% for flan in flans %}
+                {% for recetas in recetass %}
+                <div class="col-6 col-md-3 col-sm-6">
+                    <h2 class="card-title fw-bold fs-3"> {{flan.name}} </h2>
+                    <img src="{{ flan.image_url }}" class="card-img-top" alt="{{flan.name}}" style="height: 17rem;">
+                    <br>
+                    <p>{{flan.description}}<p>
+                    <p>Con esta receta sabrás como hacer un {{flan.name}} en simples pasos y con solo 4 ingredientes. Ideal para compartir como postre después de una comida.</p>
+                    <br>
+                    <h2>Ingredientes:</h2>
+                        <ul>
+                            <li>{{flan.ingredients}}</li>
+                        </ul>              
+                    <h3>Preparación</h3>
+                    <ol>
+                        <li>{{flan.preparacion}}</li>
+                    </ol>
+                </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

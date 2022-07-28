@@ -1,0 +1,42 @@
+{%extends 'base.html'%}
+{% block 'content' %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col mb-4">
+                <div class="h-100 p-5 text-white barra text-center">
+                    <h1 class="text-center titulo barra"> Nuestros Productos </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <p class="text-center py-3 fs-5"> <strong class="fs-4">OnlyFlans</strong> nace en el año 2022 buscando entregar postres y pasteles variados y de calidad.</p>
+                <div class="col text-center">
+                    <a href="{% url 'acerca' %}" class="btn mx-auto botones py-2"> Conozca más </a>
+                </div>
+                <br>
+                <hr>      
+            </div>
+        </div>
+    </div>
+    <div class="container overflow-hidden">   
+            <div class="row py-2 gx-4">
+                    {% for flan in public_flans %}
+                    <div class=" col-xs-6 col-sm-4 col-md-3 text-center">              
+                        <div class="card my-3" style="width: 18rem;">
+                            <img src="{{ flan.image_url }}" class="card-img-top" alt="{{flan.name}}" style="height: 17rem;">
+                            <div class="card-body">
+                            <h5 class="card-title fw-bold fs-3">{{flan.name}}</h5>
+                            <p class="card-text">{{flan.description}}</p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                            <li class="list-group-item fw-bold fs-4 precio">$   {{ flan.price }} </li>
+                            </ul>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+{% endblock %}
